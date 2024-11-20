@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
 import RegionButton from './RegionButton';
+import { useOnboarding } from '../../../contexts/OnboardingContext'; 
 import * as S from './RegionSelector.style';
 
-const RegionSelector = ({ onSelectionChange }) => {
-    const [selectedRegion, setSelectedRegion] = useState(null);
+const RegionSelector = () => {
+    const { selectedRegion, setSelectedRegion } = useOnboarding(); 
 
     const regions = [
         '서울', '인천', '경기', '강원', '세종', '충북',
@@ -13,8 +12,7 @@ const RegionSelector = ({ onSelectionChange }) => {
     ];
 
     const handleRegionClick = (region) => {
-        setSelectedRegion(region);
-        onSelectionChange(region); 
+        setSelectedRegion(region); 
     };
 
     return (
@@ -24,17 +22,13 @@ const RegionSelector = ({ onSelectionChange }) => {
                     <RegionButton
                         key={region}
                         label={region}
-                        isSelected={selectedRegion === region}
+                        isSelected={selectedRegion === region} 
                         onClick={() => handleRegionClick(region)}
                     />
                 ))}
             </S.Container>
         </S.Wrapper>
     );
-};
-
-RegionSelector.propTypes = {
-    onSelectionChange: PropTypes.func.isRequired, 
 };
 
 export default RegionSelector;

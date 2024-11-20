@@ -1,40 +1,40 @@
 import { useNavigate } from 'react-router-dom';
 import { useOnboarding } from '../../contexts/OnboardingContext'; 
 import OnboardingHeader from '../../components/onboarding/OnboardingHeader/OnboardingHeader';
-import DisabilityTypeSelector from '../../components/onboarding/DisabilityTypeSelector/DisabilityTypeSelector';
+import RegionSelector from '../../components/onboarding/RegionSelector/RegionSelector';
 import OnboardingNextBtn from '../../components/onboarding/OnboardingNextBtn/OnboardingNextBtn';
-import * as S from './Step1.style';
+import * as S from './Step2.style';
 
-const Step1 = () => {
-    const { selectedTypes, setSelectedTypes } = useOnboarding(); 
+const Step2 = () => {
+    const { selectedRegion, setSelectedRegion } = useOnboarding();
     const navigate = useNavigate();
 
-    const currentStep = 1;
+    const currentStep = 2;
     const totalSteps = 4;
 
     const handleNext = () => {
-        navigate('/onboarding-step2');
+        navigate('/onboarding-step3'); 
     };
 
     return (
-        <S.Step1Container>
+        <S.Step2Container>
             <OnboardingHeader currentStep={currentStep} totalSteps={totalSteps} onBack={() => navigate(-1)} />
 
-            <S.Title>해당하는 유형을 <br /> 선택해주세요</S.Title>
-            <S.Description>중복 선택이 가능해요</S.Description>
+            <S.Title>어디로 떠날까요?</S.Title>
+            <S.Description>지역 한 곳을 선택해주세요</S.Description>
 
-            <DisabilityTypeSelector onSelectionChange={setSelectedTypes} />
+            <RegionSelector onSelectionChange={setSelectedRegion} />
 
             <S.ButtonWrapper>
                 <OnboardingNextBtn
-                    disabled={selectedTypes.length === 0}
+                    disabled={!selectedRegion}
                     onClick={handleNext}
                 >
                     다음
                 </OnboardingNextBtn>
             </S.ButtonWrapper>
-        </S.Step1Container>
+        </S.Step2Container>
     );
 };
 
-export default Step1;
+export default Step2;

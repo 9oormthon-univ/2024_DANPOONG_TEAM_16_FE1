@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import DisabilityTypeButton from './DisabilityTypeButton';
+import { useOnboarding } from '../../../contexts/OnboardingContext'; 
 import * as S from './DisabilityTypeSelector.style';
 
 import { IcBlind, IcDeaf, IcElderly, IcInfant, IcWheelchair } from '../../../assets/svg';
 
-const DisabilityTypeSelector = ({ onSelectionChange }) => {
-    const [selectedTypes, setSelectedTypes] = useState([]);
+const DisabilityTypeSelector = () => {
+    const { selectedTypes, setSelectedTypes } = useOnboarding(); 
 
     const types = [
         { id: 1, icon: <IcElderly className="elderly-icon" />, label: '고령자' },
@@ -26,14 +25,13 @@ const DisabilityTypeSelector = ({ onSelectionChange }) => {
         } else {
             // 다른 버튼 선택 시 처리
             updatedTypes = selectedTypes.includes(6)
-                ? [id] // 해당사항 없음 해제
+                ? [id] 
                 : selectedTypes.includes(id)
-                ? selectedTypes.filter((typeId) => typeId !== id) // 이미 선택된 버튼 해제
-                : [...selectedTypes, id]; // 새 버튼 추가
+                ? selectedTypes.filter((typeId) => typeId !== id) 
+                : [...selectedTypes, id];
         }
 
-        setSelectedTypes(updatedTypes);
-        onSelectionChange(updatedTypes); // 상태 변경 즉시 부모에게 전달
+        setSelectedTypes(updatedTypes); 
     };
 
     return (
@@ -44,17 +42,13 @@ const DisabilityTypeSelector = ({ onSelectionChange }) => {
                         key={type.id}
                         icon={type.icon}
                         label={type.label}
-                        isSelected={selectedTypes.includes(type.id)}
+                        isSelected={selectedTypes.includes(type.id)} 
                         onClick={() => toggleSelect(type.id)}
                     />
                 ))}
             </S.Container>
         </S.Wrapper>
     );
-};
-
-DisabilityTypeSelector.propTypes = {
-    onSelectionChange: PropTypes.func.isRequired,
 };
 
 export default DisabilityTypeSelector;
