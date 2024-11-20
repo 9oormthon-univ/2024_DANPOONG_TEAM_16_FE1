@@ -18,8 +18,10 @@ export const Title = styled.h1`
 `;
 
 export const ButtonWrapper = styled.div`
-    margin-top: auto;
-    margin-bottom: 5rem; 
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%); 
     width: 100%;
     display: flex;
     justify-content: center;
