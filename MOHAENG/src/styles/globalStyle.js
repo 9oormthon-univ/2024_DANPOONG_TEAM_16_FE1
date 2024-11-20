@@ -9,13 +9,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    --min-width: 375px;
-    --max-width: 430px;
+    --min-width: 370px;
+    --max-width: 490px;
   }
 
   html,
   body {
     font-size: 62.5%;
+    font-family: 'Pretendard', sans-serif;
     scrollbar-width: none;
     margin: 0;
     padding: 0;
