@@ -1,4 +1,4 @@
-import Step1 from '../../components/onboarding/Step1'; // 최상위 컴포넌트
+import Step1 from '../../components/onboarding/Step1'; 
 
 const Step1Page = () => {
     return (
