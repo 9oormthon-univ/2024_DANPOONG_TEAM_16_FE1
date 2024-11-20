@@ -3,13 +3,13 @@ import * as S from './OnboardingHeader.style';
 
 import BackIcon from '../../../assets/svg/ic_onboarding_header_back.svg'; 
 
-const OnboardingHeader = ({ currentStep, totalSteps }) => {
+const OnboardingHeader = ({ currentStep, totalSteps, onBack }) => {
     // 프로그레스바 퍼센트 계산
     const progressPercentage = (currentStep / totalSteps) * 100;
 
     return (
         <S.HeaderContainer>
-            <S.BackButton src={BackIcon} alt="뒤로가기">
+            <S.BackButton onClick={onBack}>
                 <img src={BackIcon} alt="뒤로가기" />
             </S.BackButton>
 
@@ -27,6 +27,7 @@ const OnboardingHeader = ({ currentStep, totalSteps }) => {
 OnboardingHeader.propTypes = {
     currentStep: PropTypes.number.isRequired,
     totalSteps: PropTypes.number.isRequired,
+    onBack: PropTypes.func.isRequired,
 };
 
 export default OnboardingHeader;
