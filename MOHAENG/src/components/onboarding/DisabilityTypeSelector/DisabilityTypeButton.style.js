@@ -16,11 +16,6 @@ export const Button = styled.button.withConfig({
     border-radius: 13px;
     cursor: pointer;
     box-shadow: 0px 4px 12.1px 0px rgba(0, 0, 0, 0.06);
-
-    &:hover {
-        border-color: ${theme.color.blue2};
-        background-color: ${theme.color.blue1};
-    }
 `;
 
 export const Label = styled.span.withConfig({
@@ -60,6 +55,7 @@ export const Icon = styled.div`
             height: 6.2rem;
             margin-top: 2.6rem;
             margin-right: 2.2rem; 
+            transform: scaleX(-1);
         }
 
         &.infant-icon {
@@ -70,8 +66,8 @@ export const Icon = styled.div`
         }
 
         &.deaf-icon {
-            width: 3.8rem;
-            height: 4.5rem;
+            width: 3.9rem;
+            height: 4.6rem;
             margin-top: 2.5rem;
             margin-right: 2rem;
         }
