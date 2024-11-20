@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from '../../styles/theme';
 
-export const Step1Container = styled.div`
+export const Step2Container = styled.div`
     position: relative; 
     padding: 0 1.6rem;
     height: 100vh; 
@@ -15,7 +15,7 @@ export const Title = styled.h1`
     font-style: normal;
     font-weight: 500;
     line-height: 130%;
-    margin-top: 2.309rem;
+    margin-top: 4.459rem;
 `;
 
 export const Description = styled.p`
@@ -24,7 +24,7 @@ export const Description = styled.p`
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    margin-top: 1.3rem;
+    margin-top: 2.5rem;
     margin-left: 0.2rem;
 `;
 
