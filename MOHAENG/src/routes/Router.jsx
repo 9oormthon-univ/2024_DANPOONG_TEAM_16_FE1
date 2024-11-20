@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import Step1 from '../pages/Onboarding/Step1';
+import Step1 from '../pages/Onboarding/Step1Page';
 
 const router = createBrowserRouter([
   {
