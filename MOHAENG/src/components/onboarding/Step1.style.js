@@ -30,7 +30,7 @@ export const Description = styled.p`
 
 export const ButtonWrapper = styled.div`
     position: absolute;
-    bottom: 5rem;
+    bottom: 4rem;
     left: 50%;
     transform: translateX(-50%); 
     width: 100%;
