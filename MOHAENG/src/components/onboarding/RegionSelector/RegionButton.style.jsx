@@ -7,7 +7,7 @@ export const Button = styled.button.withConfig({
     width: 10.4rem;
     height: 4.8rem;
     border: 1.5px solid
-        ${({ isSelected }) => (isSelected ? theme.color.primary : theme.color.gray6)};
+        ${({ isSelected }) => (isSelected ? theme.color.blue2 : theme.color.gray6)};
     background-color: ${({ isSelected }) =>
         isSelected ? theme.color.blue1 : theme.color.white};
     color: ${({ isSelected }) =>

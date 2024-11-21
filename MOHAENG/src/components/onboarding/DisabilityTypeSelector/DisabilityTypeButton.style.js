@@ -12,7 +12,7 @@ export const Button = styled.button.withConfig({
     justify-content: flex-start;
     background-color: ${(props) => (props.isSelected ? theme.color.blue1 : theme.color.white)};
     color: ${theme.color.black};
-    border: 1.5px solid ${(props) => (props.isSelected ? theme.color.primary : theme.color.gray3)};
+    border: 1.5px solid ${(props) => (props.isSelected ? theme.color.blue2 : theme.color.gray3)};
     border-radius: 13px;
     cursor: pointer;
     box-shadow: 0px 4px 12.1px 0px rgba(0, 0, 0, 0.06);
