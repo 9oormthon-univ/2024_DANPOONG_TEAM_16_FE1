@@ -13,6 +13,7 @@ const theme = {
         gray5: '#D9D9D9',
         gray6: '#E3E3E3',
         gray7: '#676767',
+        gray8: '#858585',
     },
     font: {
         pretendard: `'Pretendard', sans-serif`,
