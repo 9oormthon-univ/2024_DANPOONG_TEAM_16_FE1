@@ -11,6 +11,7 @@ export const OnboardingProvider = ({ children }) => {
     const [selectedTypes, setSelectedTypes] = useState([]);
     const [selectedRegion, setSelectedRegion] = useState(null);
     const [selectedDuration, setSelectedDuration] = useState(null); 
+    const [selectedStyles, setSelectedStyles] = useState([]); // 이름 수정
 
     return (
         <OnboardingContext.Provider
@@ -20,7 +21,9 @@ export const OnboardingProvider = ({ children }) => {
                 selectedRegion,
                 setSelectedRegion,
                 selectedDuration,
-                setSelectedDuration, 
+                setSelectedDuration,
+                selectedStyles, // 이름 수정
+                setSelectedStyles,
             }}
         >
             {children}
