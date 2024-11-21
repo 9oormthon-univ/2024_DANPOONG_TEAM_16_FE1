@@ -1,14 +1,18 @@
 import { RouterProvider } from 'react-router-dom';
-import router from './routes';
+import { OnboardingProvider } from './contexts/OnboardingContext';
 
-import GlobalStyle from './GlobalStyle';
+import router from './routes/Router';
+
+import GlobalStyle from './styles/globalStyle'; 
 
 function App() {
     return (
-        <>
+      <>
+        <OnboardingProvider>
           <GlobalStyle />
           <RouterProvider router={router} />
-        </>
+        </OnboardingProvider>
+      </>
     );
 }
 
