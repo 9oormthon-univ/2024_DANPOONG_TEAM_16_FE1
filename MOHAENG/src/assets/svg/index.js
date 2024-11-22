@@ -1,3 +1,4 @@
+export { default as IcPlacedetailHeaderBack } from "./IcPlacedetailHeaderBack";
 export { default as IcBlind } from "./IcBlind";
 export { default as IcDeaf } from "./IcDeaf";
 export { default as IcElderly } from "./IcElderly";
@@ -6,4 +7,5 @@ export { default as IcOnboardingActicity } from "./IcOnboardingActicity";
 export { default as IcOnboardingBeach } from "./IcOnboardingBeach";
 export { default as IcOnboardingForest } from "./IcOnboardingForest";
 export { default as IcOnboardingHistory } from "./IcOnboardingHistory";
+export { default as IcPlacedetailHeaderHome } from "./IcPlacedetailHeaderHome";
 export { default as IcWheelchair } from "./IcWheelchair";
