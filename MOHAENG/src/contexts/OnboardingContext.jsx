@@ -8,10 +8,32 @@ export const useOnboarding = () => {
 };
 
 export const OnboardingProvider = ({ children }) => {
-    const [selectedTypes, setSelectedTypes] = useState([]);
-    const [selectedRegion, setSelectedRegion] = useState(null);
-    const [selectedDuration, setSelectedDuration] = useState(null); 
-    const [selectedStyles, setSelectedStyles] = useState([]); // 이름 수정
+    // 스텝별 상태 관리
+    const [selectedTypes, setSelectedTypes] = useState([]); // 장애 유형
+    const [selectedRegion, setSelectedRegion] = useState(null); // 여행 지역
+    const [selectedDuration, setSelectedDuration] = useState(null); // 여행 기간
+    const [selectedStyles, setSelectedStyles] = useState([]); // 여행 스타일
+
+    // 최종 코스 데이터를 통합 관리
+    const [courseData, setCourseData] = useState({
+        disability: [], // 장애 유형
+        tripType: [], // 여행 스타일
+        area: null, // 지역
+        period: null, // 기간
+        startDate: '', // 시작 날짜
+        dayPlans: {}, // 일별 코스
+    });
+
+    // 스텝 데이터를 업데이트하며 최종 데이터를 구성하는 함수
+    const updateCourseData = () => {
+        setCourseData((prevData) => ({
+            ...prevData,
+            disability: selectedTypes,
+            tripType: selectedStyles,
+            area: selectedRegion,
+            period: selectedDuration,
+        }));
+    };
 
     return (
         <OnboardingContext.Provider
@@ -22,8 +44,11 @@ export const OnboardingProvider = ({ children }) => {
                 setSelectedRegion,
                 selectedDuration,
                 setSelectedDuration,
-                selectedStyles, // 이름 수정
+                selectedStyles,
                 setSelectedStyles,
+                courseData,
+                setCourseData,
+                updateCourseData, // 최종 데이터 업데이트 함수
             }}
         >
             {children}
@@ -34,3 +59,4 @@ export const OnboardingProvider = ({ children }) => {
 OnboardingProvider.propTypes = {
     children: PropTypes.node.isRequired,
 };
+
