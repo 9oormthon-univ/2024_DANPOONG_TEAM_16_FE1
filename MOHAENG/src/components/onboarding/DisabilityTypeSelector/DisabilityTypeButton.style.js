@@ -26,7 +26,7 @@ export const Label = styled.span.withConfig({
     color: ${(props) => (props.isSelected ? props.theme.color.black : props.theme.color.gray4)};
     font-size: 1.8rem;
     font-style: normal;
-    font-weight: ${(props) => (props.isSelected ? 600 : 400)};
+    font-weight: ${(props) => (props.isSelected ? 600 : 500)};
     letter-spacing: -0.198px;
     white-space: pre-wrap;
     text-align: left; 

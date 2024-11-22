@@ -38,7 +38,7 @@ export const Title = styled.span.withConfig({
 })`
     color: ${({ theme }) => theme.color.black};
     font-size: 1.5rem;
-    font-weight: ${({ isSelected }) => (isSelected ? 600 : 400)};
+    font-weight: ${({ isSelected }) => (isSelected ? 600 : 500)};
     letter-spacing: -0.198px;
     margin-bottom: 0.5rem; /* Title과 Description 사이 간격 */
 `;

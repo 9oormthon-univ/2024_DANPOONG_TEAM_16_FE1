@@ -14,7 +14,7 @@ export const Button = styled.button.withConfig({
     border-radius: 37px;
     cursor: pointer;
     font-size: 1.7rem;
-    font-weight: ${({ isSelected }) => (isSelected ? 600 : 400)};
+    font-weight: ${({ isSelected }) => (isSelected ? 600 : 500)};
 
     &:hover {
         border-color: ${({ theme }) => theme.color.blue2};

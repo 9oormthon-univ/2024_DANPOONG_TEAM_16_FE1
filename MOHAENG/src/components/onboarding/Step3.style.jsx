@@ -12,7 +12,7 @@ export const Step3Container = styled.div`
 export const Title = styled.h1`
     margin-top: 2.3rem;
     font-size: 2.4rem;
-    font-weight: 500;
+    font-weight: 600;
     color: ${({ theme }) => theme.color.black};
     margin-top: 4.459rem;
 `;
