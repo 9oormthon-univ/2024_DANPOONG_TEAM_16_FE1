@@ -58,7 +58,7 @@ export const Value = styled.span`
 export const CopyButton = styled.button`
     background: none;
     border: none;
-    color: ${theme.color.primary};
+    color: ${theme.color.primary3};
     font-family: Pretendard, sans-serif;
     font-size: 14px;
     font-weight: 500;
