@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import * as S from './OnboardingHeader.style'; 
-
 import BackIcon from '../../../assets/svg/ic_onboarding_header_back.svg'; 
 
 const OnboardingHeader = ({ currentStep, totalSteps, onBack }) => {

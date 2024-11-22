@@ -12,13 +12,28 @@ const Step1 = () => {
     const currentStep = 1;
     const totalSteps = 4;
 
+    const handleBack = () => {
+        // iOS에 cancel 메시지 전달
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.serverEvent) {
+            window.webkit.messageHandlers.serverEvent.postMessage({
+                name: 'cancel',
+                body: 'cancel',
+            });
+        } else {
+            console.error('iOS WebKit 메세지 핸들러가 정의되지 않았습니다.');
+        }
+
+        // 뒤로가기 동작
+        navigate(-1);
+    };
+
     const handleNext = () => {
         navigate('/onboarding-step2');
     };
 
     return (
         <S.Step1Container>
-            <OnboardingHeader currentStep={currentStep} totalSteps={totalSteps} onBack={() => navigate(-1)} />
+            <OnboardingHeader currentStep={currentStep} totalSteps={totalSteps} onBack={handleBack} />
 
             <S.Title>해당하는 유형을 <br /> 선택해주세요</S.Title>
             <S.Description>중복 선택이 가능해요</S.Description>
