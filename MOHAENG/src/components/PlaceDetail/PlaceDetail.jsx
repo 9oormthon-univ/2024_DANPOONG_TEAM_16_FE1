@@ -9,12 +9,22 @@ import DetailedFacilityInfo from './DetailedFacilityInfo/DetailedFacilityInfo';
 import * as S from './PlaceDetail.style';
 
 const PlaceDetail = () => {
+    const [contentId, setContentId] = useState(null); // 초기에는 contentId가 없음
     const [placeDetails, setPlaceDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const contentId = 125266; // 임시 ID
+
+    // iOS에서 contentId 전달받기
+    useEffect(() => {
+        // iOS가 호출하는 함수 설정
+        window.sendContentID = (id) => {
+            setContentId(id);
+        };
+    }, []);
 
     useEffect(() => {
+        if (!contentId) return; // contentId가 없으면 API 호출 안 함
+
         const fetchDetails = async () => {
             try {
                 setLoading(true);
@@ -30,7 +40,8 @@ const PlaceDetail = () => {
         fetchDetails();
     }, [contentId]);
 
-    if (loading) return <div>로딩 중...</div>;
+    if (!contentId) return <div>로딩 중...</div>; // contentId를 받기 전까지 로딩 표시
+    if (loading) return <div>로딩 중...</div>; // API 호출 중일 때 로딩 표시
     if (error) return <div>에러: {error}</div>;
 
     const {
