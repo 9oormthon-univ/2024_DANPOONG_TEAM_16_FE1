@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../../styles/theme';
 
 export const Button = styled.button.withConfig({
     shouldForwardProp: (prop) => prop !== 'isSelected',
@@ -10,9 +9,9 @@ export const Button = styled.button.withConfig({
     position: relative; 
     display: flex;
     justify-content: flex-start;
-    background-color: ${(props) => (props.isSelected ? theme.color.blue1 : theme.color.white)};
-    color: ${theme.color.black};
-    border: 1.5px solid ${(props) => (props.isSelected ? theme.color.blue2 : theme.color.gray3)};
+    background-color: ${(props) => (props.isSelected ? props.theme.color.blue1 : props.theme.color.white)};
+    color: ${(props) => props.theme.color.black};
+    border: 1.5px solid ${(props) => (props.isSelected ? props.theme.color.blue2 : props.theme.color.gray3)};
     border-radius: 13px;
     cursor: pointer;
     box-shadow: 0px 4px 12.1px 0px rgba(0, 0, 0, 0.06);
@@ -24,7 +23,7 @@ export const Label = styled.span.withConfig({
     position: absolute;
     top: 1.9rem; 
     left: 1.3rem; 
-    color: ${(props) => (props.isSelected ? theme.color.black : theme.color.gray4)};
+    color: ${(props) => (props.isSelected ? props.theme.color.black : props.theme.color.gray4)};
     font-size: 1.8rem;
     font-style: normal;
     font-weight: ${(props) => (props.isSelected ? 600 : 400)};

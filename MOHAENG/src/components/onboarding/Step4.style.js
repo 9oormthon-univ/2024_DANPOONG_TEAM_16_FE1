@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import theme from '../../styles/theme'; // 사용 중인 테마 파일 import
 
 export const Step4Container = styled.div`
+    background-color: ${(props) => props.theme.color.white};
     position: relative; 
     padding: 0 1.6rem;
     height: 100vh; 
@@ -13,13 +13,13 @@ export const Title = styled.h1`
     margin-top: 2.3rem;
     font-size: 2.4rem;
     font-weight: 500;
-    color: ${theme.color.black};
+    color: ${({ theme }) => theme.color.black};
     margin-top: 4.459rem;
     line-height: 130%;
 `;
 
 export const Description = styled.p`
-    color: ${theme.color.gray2};
+    color: ${({ theme }) => theme.color.gray2};
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;

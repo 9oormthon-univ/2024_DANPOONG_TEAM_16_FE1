@@ -7,6 +7,8 @@ import {
     IcElderly,
     IcInfant,
 } from '../../../assets/svg';
+import { useTheme } from '../../../contexts/ThemeContext'; 
+import themes from '../../../styles/theme'; 
 
 const FacilityIcons = ({
     publicTransport,
@@ -22,29 +24,36 @@ const FacilityIcons = ({
     lactationRoom,
     babySpareChair,
 }) => {
+    const { currentTheme } = useTheme(); 
+
+    const theme = themes[currentTheme] || themes.default;
+
+    const activeColor = theme.color.black; 
+    const inactiveColor = theme.color.gray6; 
+
     const icons = [
         {
-            icon: <IcWheelchair fill={publicTransport || elevator || restroom ? 'black' : '#E0E0E0'} />,
+            icon: <IcWheelchair fill={publicTransport || elevator || restroom ? activeColor : inactiveColor} />,
             label: '휠체어 사용자',
             active: publicTransport || elevator || restroom,
         },
         {
-            icon: <IcElderly fill={publicTransport || elevator ? 'black' : '#E0E0E0'} />,
+            icon: <IcElderly fill={publicTransport || elevator ? activeColor : inactiveColor} />,
             label: '노약자',
             active: publicTransport || elevator,
         },
         {
-            icon: <IcBlind fill={helpDog || guideHuman || braileBlock ? 'black' : '#E0E0E0'} />,
+            icon: <IcBlind fill={helpDog || guideHuman || braileBlock ? activeColor : inactiveColor} />,
             label: '시각 장애',
             active: helpDog || guideHuman || braileBlock,
         },
         {
-            icon: <IcInfant fill={stroller || lactationRoom || babySpareChair ? 'black' : '#E0E0E0'} />,
+            icon: <IcInfant fill={stroller || lactationRoom || babySpareChair ? activeColor : inactiveColor} />,
             label: '영유아',
             active: stroller || lactationRoom || babySpareChair,
         },
         {
-            icon: <IcDeaf stroke={signGuide || videoGuide || hearingHandicapEtc ? 'black' : '#E0E0E0'} />,
+            icon: <IcDeaf stroke={signGuide || videoGuide || hearingHandicapEtc ? activeColor : inactiveColor} />,
             label: '청각 장애',
             active: signGuide || videoGuide || hearingHandicapEtc,
         },

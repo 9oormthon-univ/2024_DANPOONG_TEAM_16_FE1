@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import theme from '../../../styles/theme';
 
 const fadeInOut = keyframes`
     0%, 100% { opacity: 0; transform: translateY(20px); }
@@ -21,7 +20,7 @@ export const Container = styled.div`
     height: auto;
     padding: 9px 14px;
     border-radius: 6px;
-    background: #f0f0f0;
+    background: ${({ theme }) => theme.color.gray10};
     gap: 8px;
     flex-shrink: 0;
 `;
@@ -34,31 +33,31 @@ export const Row = styled.div`
 `;
 
 export const Label = styled.span`
-    color: #000;
+    color: ${({ theme }) => theme.color.black};
     font-family: Pretendard, sans-serif;
     font-size: 15px;
     font-weight: 500;
-    line-height: 150%; /* 22.5px */
+    line-height: 150%;
     letter-spacing: -0.299px;
     margin-right: 10px; /* 간격 조절 */
 `;
 
 export const Value = styled.span`
     flex: 1;
-    color: #525252;
+    color: ${({ theme }) => theme.color.gray8};
     font-family: Pretendard, sans-serif;
     font-size: 14px;
     font-weight: 500;
-    line-height: 150%; /* 21px */
+    line-height: 150%;
     letter-spacing: -0.299px;
     text-align: left;
-    margin-right: 10px; /* 복사 버튼과 간격 */
+    margin-right: 10px;
 `;
 
 export const CopyButton = styled.button`
     background: none;
     border: none;
-    color: ${theme.color.primary3};
+    color: ${({ theme }) => theme.color.primary3};
     font-family: Pretendard, sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -77,11 +76,10 @@ export const ToastWrapper = styled.div`
     width: 100%; 
 `;
 
-
 export const Toast = styled.div`
     bottom: 2rem;
-    background: ${theme.color.black};
-    color: white;
+    background: ${({ theme }) => theme.color.black};
+    color: ${({ theme }) => theme.color.white};
     padding: 1rem 1.2rem;
     border-radius: 6px;
     font-size: 1.3rem;

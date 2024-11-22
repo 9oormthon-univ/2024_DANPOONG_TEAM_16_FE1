@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../../styles/theme';
 
 export const Button = styled.button`
     display: flex;
@@ -8,8 +7,8 @@ export const Button = styled.button`
     padding: 1.3rem 0;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => (props.disabled ? theme.color.gray5 : theme.color.primary2)};
-    color: ${theme.color.white};
+    background-color: ${(props) => (props.disabled ? props.theme.color.gray5 : props.theme.color.primary2)};
+    color: ${(props) => props.theme.color.white};
     border: none;
     border-radius: 14px;
     cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
