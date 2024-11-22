@@ -1,19 +1,30 @@
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 import * as S from './PlaceDetailHeader.style';
 
 import { IcPlacedetailHeaderBack, IcPlacedetailHeaderHome } from '../../../assets/svg';
 
 const PlaceDetailHeader = () => {
-    const navigate = useNavigate();
 
     const handleBackClick = () => {
-        navigate(-1); 
+        if (window.webkit?.messageHandlers?.serverEvent) {
+            window.webkit.messageHandlers.serverEvent.postMessage({
+                name: 'back', 
+                body: 'back', 
+            });
+        } else {
+            console.warn('iOS 브릿지 설정 안 됨');
+        }
     };
-
+    
     const handleHomeClick = () => {
-        navigate('/'); // 홈으로 이동
-        console.log('iOS 홈 화면과 연동 필요'); // 추후 iOS와 연동 시 수정
+        if (window.webkit?.messageHandlers?.serverEvent) {
+            window.webkit.messageHandlers.serverEvent.postMessage({
+                name: 'home', 
+                body: 'home', 
+            });
+        } else {
+            console.warn('iOS 브릿지가 설정 안 됨');
+        }
     };
 
     return (
