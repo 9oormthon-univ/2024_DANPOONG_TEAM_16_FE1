@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import theme from '../../styles/theme';
 
 export const Step2Container = styled.div`
+    background-color: ${(props) => props.theme.color.white};
     position: relative; 
     padding: 0 1.6rem;
     height: 100vh; 
@@ -10,19 +10,19 @@ export const Step2Container = styled.div`
 `;
 
 export const Title = styled.h1`
-    color: ${theme.color.black};
+    color: ${({ theme }) => theme.color.black};
     font-size: 2.4rem;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 130%;
     margin-top: 4.459rem;
 `;
 
 export const Description = styled.p`
-    color: ${theme.color.gray2};
+    color: ${({ theme }) => theme.color.gray2};
     font-size: 1.6rem;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 150%;
     margin-top: 2.5rem;
     margin-left: 0.2rem;

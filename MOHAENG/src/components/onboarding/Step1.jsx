@@ -15,14 +15,11 @@ const Step1 = () => {
     const handleBack = () => {
         // iOS에 cancel 메시지 전달
         if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.serverEvent) {
-            window.webkit.messageHandlers.serverEvent.postMessage({
-                name: 'cancel',
-                body: 'cancel',
-            });
+            window.webkit.messageHandlers.serverEvent.postMessage('cancel');
         } else {
             console.error('iOS WebKit 메세지 핸들러가 정의되지 않았습니다.');
         }
-
+    
         // 뒤로가기 동작
         navigate(-1);
     };

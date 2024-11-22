@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../../styles/theme';
 
 // 헤더 전체 컨테이너
 export const HeaderContainer = styled.div`
@@ -7,7 +6,7 @@ export const HeaderContainer = styled.div`
     flex-direction: column;
     width: 100%;
     align-items: center;
-    background-color: ${theme.color.white};
+    background-color: ${({ theme }) => theme.color.white};;
     padding-top: 1.6rem;
 `;
 
@@ -28,7 +27,7 @@ export const BackButton = styled.button`
 export const ProgressBarContainer = styled.div`
     width: 100%;
     height: 0.4rem;
-    background-color: ${theme.color.gray1};
+    background-color: ${({ theme }) => theme.color.gray1};;
     border-radius: 4px;
     overflow: hidden;
     margin-top: 1.6rem;
@@ -38,7 +37,7 @@ export const ProgressBarContainer = styled.div`
 export const ProgressBar = styled.div`
     width: ${({ progress }) => `${progress}%`};
     height: 100%;
-    background-color: ${theme.color.primary};
+    background-color: ${({ theme }) => theme.color.primary};
     transition: width 0.3s ease-in-out;
 `;
 
@@ -48,9 +47,9 @@ export const StepInfo = styled.div`
     font-size: 1.8rem;
     font-weight: 600;
     margin-top: 1.625rem;
-    color: ${theme.color.black}; /* 기본 텍스트 색상 */
+    color: ${({ theme }) => theme.color.black}; /* 기본 텍스트 색상 */
 `;
 
 export const CurrentStep = styled.span`
-    color: ${theme.color.primary}; /* currentStep 색상 */
+    color: ${({ theme }) => theme.color.primary};; /* currentStep 색상 */
 `;

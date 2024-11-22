@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../../styles/theme';
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -13,7 +12,7 @@ export const Title = styled.h2`
     line-height: 150%; 
     letter-spacing: -0.28px;
     margin-left: 1.7rem;
-    color: ${theme.color.black};
+    color: ${({ theme }) => theme.color.black};
 `;
 
 export const Container = styled.div`

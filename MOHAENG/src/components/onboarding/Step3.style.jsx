@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import theme from '../../styles/theme';
 
 export const Step3Container = styled.div`
+    background-color: ${(props) => props.theme.color.white};
     position: relative; 
     padding: 0 1.6rem;
     height: 100vh; 
@@ -12,8 +12,8 @@ export const Step3Container = styled.div`
 export const Title = styled.h1`
     margin-top: 2.3rem;
     font-size: 2.4rem;
-    font-weight: 500;
-    color: ${theme.color.black};
+    font-weight: 600;
+    color: ${({ theme }) => theme.color.black};
     margin-top: 4.459rem;
 `;
 

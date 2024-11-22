@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import theme from '../../../styles/theme';
 
 export const Container = styled.div`
     padding: 1rem 1.6rem 1.4rem 1.6rem;
 `;
 
 export const Title = styled.h1`
-    color: ${theme.color.black};
+    color: ${({ theme }) => theme.color.black};
     font-size: 2.4rem;
     font-style: normal;
     font-weight: 600;
@@ -16,7 +15,7 @@ export const Title = styled.h1`
 
 export const Description = styled.div`
     font-size: 1.4rem;
-    color: ${theme.color.gray9};
+    color: ${({ theme }) => theme.color.gray9};
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
@@ -26,7 +25,7 @@ export const Description = styled.div`
 `;
 
 export const MoreButton = styled.span`
-    color: ${theme.color.gray13};
+    color: ${({ theme }) => theme.color.gray13};
     cursor: pointer;
     font-size: 1.4rem;
     font-style: normal;

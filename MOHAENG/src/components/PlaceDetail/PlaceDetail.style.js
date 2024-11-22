@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import theme from '../../styles/theme';
 
 export const Container = styled.div`
+    background-color: ${(props) => props.theme.color.white};
     position: relative;
     width: 100%;
     height: auto;
@@ -12,5 +12,5 @@ export const Container = styled.div`
 export const Divider = styled.div`
     width: 100%;
     height: 0.8rem;
-    background-color: ${theme.color.gray10};
+    background-color: ${({ theme }) => theme.color.gray10};
 `;

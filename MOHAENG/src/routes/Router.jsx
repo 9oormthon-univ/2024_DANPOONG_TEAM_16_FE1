@@ -8,23 +8,23 @@ import PlaceDetail from '../pages/PlaceDetail/PlaceDetailPage';
 
 const router = createBrowserRouter([
   {
-    path: '/onboarding-step1',
+    path: '/onboarding-step1/*',
     element: <Step1 />,
   },
   {
-    path: '/onboarding-step2', 
+    path: '/onboarding-step2/*', 
     element: <Step2 />,
   },
   {
-    path: '/onboarding-step3',
+    path: '/onboarding-step3/*',
     element: <Step3 />,
   },
   {
-    path: '/onboarding-step4',
+    path: '/onboarding-step4/*',
     element: <Step4 />,
   },
   {
-    path: '/place-detail',
+    path: '/place-detail/*',
     element: <PlaceDetail />,
   },
 ]);

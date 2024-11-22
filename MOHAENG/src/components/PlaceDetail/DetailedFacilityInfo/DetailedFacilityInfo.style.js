@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../../styles/theme'; 
 
 export const Container = styled.div`
     width: 100%;
@@ -16,25 +15,24 @@ export const Title = styled.h2`
     line-height: 150%;
     letter-spacing: -0.28px;
     margin-bottom: 1.5rem;
-    color: ${theme.color.black};
+    color: ${({ theme }) => theme.color.black};
     align-self: flex-start; 
     margin-left: 1.7rem; 
 `;
 
 export const FacilityCard = styled.div`
-    background-color: ${theme.color.gray11};
+    background-color: ${({ theme }) => theme.color.gray11};
     padding: 1.5rem;
     border-radius: 12px;
     margin-bottom: 1.5rem;
     width: 92%;
     display: flex;
-    justify-content: space-between; /
+    justify-content: space-between;
     align-items: flex-start;
 `;
 
-
 export const Type = styled.h3`
-    color: ${theme.color.black};
+    color: ${({ theme }) => theme.color.black};
     font-family: Pretendard;
     font-size: 1.5rem;
     font-style: normal;
@@ -45,7 +43,6 @@ export const Type = styled.h3`
     text-align: left; 
 `;
 
-
 export const DetailList = styled.ul`
     list-style: none;
     padding: 0;
@@ -55,7 +52,7 @@ export const DetailList = styled.ul`
 `;
 
 export const DetailItem = styled.li`
-    color: ${theme.color.gray12};
+    color: ${({ theme }) => theme.color.gray12};
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 500;
