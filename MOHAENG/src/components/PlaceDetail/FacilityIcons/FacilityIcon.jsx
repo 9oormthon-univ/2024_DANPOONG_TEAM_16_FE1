@@ -44,7 +44,7 @@ const FacilityIcons = ({
             active: stroller || lactationRoom || babySpareChair,
         },
         {
-            icon: <IcDeaf fill={signGuide || videoGuide || hearingHandicapEtc ? 'black' : '#E0E0E0'} />,
+            icon: <IcDeaf stroke={signGuide || videoGuide || hearingHandicapEtc ? 'black' : '#E0E0E0'} />,
             label: '청각 장애',
             active: signGuide || videoGuide || hearingHandicapEtc,
         },
