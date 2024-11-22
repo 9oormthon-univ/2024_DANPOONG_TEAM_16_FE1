@@ -14,13 +14,23 @@ export const Title = styled.h1`
     letter-spacing: -0.28px;
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
     font-size: 1.4rem;
     color: ${theme.color.gray9};
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; 
+    line-height: 150%;
     letter-spacing: -0.28px;
     white-space: pre-line;
     margin-top: 1rem;
+`;
+
+export const MoreButton = styled.span`
+    color: ${theme.color.gray13};
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-left: 0.5rem; 
 `;
