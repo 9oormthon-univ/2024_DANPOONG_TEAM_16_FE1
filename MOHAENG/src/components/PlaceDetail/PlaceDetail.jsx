@@ -9,7 +9,7 @@ import DetailedFacilityInfo from './DetailedFacilityInfo/DetailedFacilityInfo';
 import * as S from './PlaceDetail.style';
 
 const PlaceDetail = () => {
-    const [contentId, setContentId] = useState(null); // 초기에는 contentId가 없음
+    const [contentId, setContentId] = useState(null);
     const [placeDetails, setPlaceDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -23,13 +23,34 @@ const PlaceDetail = () => {
     }, []);
 
     useEffect(() => {
-        if (!contentId) return; // contentId가 없으면 API 호출 안 함
+        if (!contentId) return;
 
         const fetchDetails = async () => {
             try {
                 setLoading(true);
                 const data = await fetchPlaceDetails(contentId);
-                setPlaceDetails(data);
+
+                // API 응답 검증 및 기본값 설정
+                const validatedData = {
+                    contentTitle: data.contentTitle || '제목 없음',
+                    description: data.description || '설명이 없습니다.',
+                    addr: data.addr || '주소 정보 없음',
+                    thumbnailImage: data.thumbnailImage || null,
+                    publicTransport: data.publicTransport || false,
+                    elevator: data.elevator || false,
+                    restroom: data.restroom || false,
+                    helpDog: data.helpDog || false,
+                    guideHuman: data.guideHuman || false,
+                    braileBlock: data.braileBlock || false,
+                    signGuide: data.signGuide || false,
+                    videoGuide: data.videoGuide || false,
+                    hearingHandicapEtc: data.hearingHandicapEtc || false,
+                    stroller: data.stroller || false,
+                    lactationRoom: data.lactationRoom || false,
+                    babySpareChair: data.babySpareChair || false,
+                };
+
+                setPlaceDetails(validatedData);
             } catch (err) {
                 setError(err.message || '데이터를 가져오는 데 실패했습니다.');
             } finally {
@@ -40,10 +61,13 @@ const PlaceDetail = () => {
         fetchDetails();
     }, [contentId]);
 
-    if (!contentId) return <div>로딩 중...</div>; // contentId를 받기 전까지 로딩 표시
-    if (loading) return <div>로딩 중...</div>; // API 호출 중일 때 로딩 표시
+    // 조건부 렌더링: 데이터가 없으면 에러 처리
+    if (!contentId) return <div>로딩 중...</div>;
+    if (loading) return <div>로딩 중...</div>;
     if (error) return <div>에러: {error}</div>;
+    if (!placeDetails) return <div>데이터가 없습니다.</div>;
 
+    // 구조 분해 할당
     const {
         contentTitle,
         description,
