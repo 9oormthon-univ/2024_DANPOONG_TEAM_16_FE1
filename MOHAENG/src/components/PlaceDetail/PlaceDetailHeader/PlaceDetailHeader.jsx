@@ -7,21 +7,15 @@ const PlaceDetailHeader = () => {
 
     const handleBackClick = () => {
         if (window.webkit?.messageHandlers?.serverEvent) {
-            window.webkit.messageHandlers.serverEvent.postMessage({
-                name: 'back', 
-                body: 'back', 
-            });
+            window.webkit.messageHandlers.serverEvent.postMessage('back');
         } else {
             console.warn('iOS 브릿지 설정 안 됨');
         }
     };
-    
+
     const handleHomeClick = () => {
         if (window.webkit?.messageHandlers?.serverEvent) {
-            window.webkit.messageHandlers.serverEvent.postMessage({
-                name: 'home', 
-                body: 'home', 
-            });
+            window.webkit.messageHandlers.serverEvent.postMessage('home');
         } else {
             console.warn('iOS 브릿지가 설정 안 됨');
         }
