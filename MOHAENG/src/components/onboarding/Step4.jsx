@@ -15,26 +15,6 @@ const Step4 = () => {
     } = useOnboarding();
     const navigate = useNavigate();
 
-    // AI 코스 요청 함수
-    const requestCourseNumber = async (requestData, retries = 3) => {
-        for (let attempt = 1; attempt <= retries; attempt++) {
-            try {
-                console.log(`AI 코스 생성 시도 #${attempt}`);
-                const courseNumber = await fetchRecommendedCourses(requestData);
-
-                // 성공 시 결과 반환
-                return courseNumber;
-            } catch (error) {
-                console.error(`AI 코스 생성 실패 (시도 #${attempt}):`, error);
-
-                // 마지막 시도에서도 실패 시 에러를 다시 던짐
-                if (attempt === retries) {
-                    throw new Error('AI 코스 생성 실패: 모든 재시도 실패');
-                }
-            }
-        }
-    };
-
     const handleNext = async () => {
         const formattedTripType = selectedStyles.map((style) =>
             typeof style === 'string' ? parseInt(style, 10) : style
@@ -50,8 +30,8 @@ const Step4 = () => {
         console.log('최종 요청 데이터:', requestData);
 
         try {
-            // AI 코스 요청 및 재시도 처리
-            const courseNumber = await requestCourseNumber(requestData);
+            // AI 코스 요청 (한 번만 요청)
+            const courseNumber = await fetchRecommendedCourses(requestData);
 
             console.log('추천된 코스 번호:', courseNumber);
 
@@ -64,8 +44,12 @@ const Step4 = () => {
         } catch (error) {
             console.error('추천 코스를 가져오는 데 실패했습니다:', error);
 
-            // 에러 메시지를 사용자에게 표시하거나 별도 처리
-            alert('AI 코스 생성을 여러 번 시도했지만 실패했습니다. 잠시 후 다시 시도해주세요.');
+            // 사용자에게 에러 메시지 표시
+            if (error.response?.status === 429) {
+                alert('요청이 너무 많습니다. 잠시 후 다시 시도해주세요.');
+            } else {
+                alert('AI 코스 생성을 실패했습니다. 다시 시도해주세요.');
+            }
         }
     };
 
